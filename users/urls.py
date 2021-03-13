@@ -1,7 +1,8 @@
 from django.urls import path
 
-from users.views import ListUserCreate
+from users.views import ListUserCreateView, CompanyCreateView
 
 urlpatterns = [
-    path('', ListUserCreate.as_view())
+    path('', ListUserCreateView.as_view()),
+    path('<int:pk>/company', CompanyCreateView.as_view())
 ]
