@@ -5,5 +5,5 @@ from employee.models import EmployeeModel
 
 class EmployeeSerializer(ModelSerializer):
     class Meta:
-        model = EmployeeModel.objects.all()
+        model = EmployeeModel
         exclude = ['company']

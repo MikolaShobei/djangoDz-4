@@ -1,8 +1,10 @@
 from django.urls import path
 
-from .views import LIstCompanyView, EmployeeCreateView
+from .views import ListCompanyView, EmployeeCreateView, RetrieveUpdateDeleteCompanyView
 
 urlpatterns = [
-    path('', LIstCompanyView.as_view()),
-    path('<int:pk>/employee', EmployeeCreateView.as_view())
+    path('', ListCompanyView.as_view(), name='company_list'),
+    path('/<int:pk>/employee', EmployeeCreateView.as_view(), name='create_employee'),
+    path('/<int:pk>', RetrieveUpdateDeleteCompanyView.as_view(), name='retrieve_update_delete_company')
+
 ]

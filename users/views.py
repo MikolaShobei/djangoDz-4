@@ -1,4 +1,4 @@
-from rest_framework.generics import ListCreateAPIView, CreateAPIView, get_object_or_404
+from rest_framework.generics import ListCreateAPIView, CreateAPIView, get_object_or_404, RetrieveUpdateDestroyAPIView
 from django.contrib.auth import get_user_model
 
 from company.serializers import CompanySerializer
@@ -19,3 +19,8 @@ class CompanyCreateView(CreateAPIView):
         user_id = self.kwargs.get('pk')
         user = get_object_or_404(UserModel, pk=user_id)
         serializer.save(user=user)
+
+
+class RetrieveUpdateDestroyUserView(RetrieveUpdateDestroyAPIView):
+    queryset = UserModel.objects.all()
+    serializer_class = UserSerializer
